@@ -3,10 +3,10 @@
 
 int test() {
     double firstTeamTotalStrength = 1;
-    double secondTeamTotalStrength = 1.12;
-    int firstTeamGladiatorsNumber = 6;
+    double secondTeamTotalStrength = 1.3;
+    int firstTeamGladiatorsNumber = 3;
     int secondTeamGladiatorsNumber = 100;
-    int threadsNumber = 6;
+    int threadsNumber = 8;
 
     if ((threadsNumber <= 0) || (threadsNumber > std::thread::hardware_concurrency())) {
         std::cout << "There is wrong number" << threadsNumber << std::endl;
@@ -21,9 +21,9 @@ int test() {
     auto optimalFirstTeam = Simulation::simulationForOneTeamWithOneEnemy(firstTeamTotalStrength,
                                                                          firstTeamGladiatorsNumber,
                                                                          secondTeam,
-                                                                         250,
-                                                                         280,
-                                                                         0.95,
+                                                                         1000,
+                                                                         2500,
+                                                                         0.97,
                                                                          threadsNumber);
     auto end_time =  std::chrono::system_clock::now();
     std::chrono::duration<double> diff = end_time - start_time;
